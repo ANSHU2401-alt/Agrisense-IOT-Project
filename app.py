@@ -14,7 +14,7 @@ def preprocess(X):
     return X
 @app.route('/')
 def home():
-    return "Server Running ✅"
+    return "Server Running"
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -30,7 +30,6 @@ def predict():
 
     prob = model.predict_proba(X)[0][1]
 
-    # 🔥 FIXED LOGIC
     if sm > 70:
         pred = 0
     elif sm < 30:
